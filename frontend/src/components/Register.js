@@ -4,33 +4,53 @@ import { Link, useNavigate } from 'react-router-dom';
 import AuthServices from "../services/authServices";
 
 const Register = () => {
+    // États locaux pour gérer les champs de formulaire et l'état de chargement
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false);
+
+    // Utilisation du hook useNavigate pour la navigation
     const navigate = useNavigate();
 
+    // Fonction de soumission du formulaire
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
+            // Activation de l'état de chargement
             setLoading(true);
+
+            // Création d'un objet avec les données du formulaire
             const data = {
                 name,
                 email,
                 password
             };
+
+            // Appel du service d'authentification pour l'inscription
             const response = await AuthServices.registerUser(data);
             console.log(response.data);
+
+            // Désactivation de l'état de chargement
             setLoading(false);
+
+            // Affichage d'une alerte d'inscription réussie
             alert("Inscription réussie !");
+
+            // Redirection vers la page de connexion
             navigate('/');
         } catch (err) {
             console.log(err.response.data);
+
+            // Affichage d'une alerte en cas d'erreur lors de l'inscription
             alert("Une erreur s'est produite lors de l'inscription.");
+
+            // Désactivation de l'état de chargement
             setLoading(false);
         }
     }
 
+    // Rendu du composant Register
     return (
         <section className="vh-100 gradient-custom login-page">
             <div className="container py-5 h-100 d-flex align-items-center">

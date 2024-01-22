@@ -4,32 +4,54 @@ import { Link, useNavigate } from 'react-router-dom';
 import AuthServices from '../services/authServices';
 
 const Login = () => {
+  // États locaux pour gérer les champs de formulaire et l'état de chargement
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
+
+  // Utilisation du hook useNavigate pour la navigation
   const navigate = useNavigate();
 
+  // Fonction de soumission du formulaire
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      // Création d'un objet avec les données du formulaire
       let data = {
         email,
         password,
       };
+
+      // Activation de l'état de chargement
       setLoading(true);
+
+      // Appel du service d'authentification pour la connexion
       const response = await AuthServices.loginUser(data);
       console.log(response.data);
+
+      // Enregistrement des données de l'utilisateur dans le stockage local
       localStorage.setItem('todoAppUser', JSON.stringify(response.data));
+
+      // Affichage d'une alerte de connexion réussie
       alert('Connexion Réussie');
+
+      // Redirection vers la page du contenu après la connexion
       navigate('/content');
+
+      // Désactivation de l'état de chargement
       setLoading(false);
     } catch (err) {
       console.log(err);
+
+      // Affichage d'une alerte en cas d'erreur
       alert(err);
+
+      // Désactivation de l'état de chargement
       setLoading(false);
     }
   };
 
+  // Rendu du composant Login
   return (
     <section className="vh-100 gradient-custom login-page">
       <div className="container py-5 d-flex align-items-center">

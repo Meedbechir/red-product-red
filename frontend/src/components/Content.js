@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import { Button, Modal, Row, Col, Form } from "react-bootstrap";
-import { IoMdAdd } from "react-icons/io";
 import HotelServices from '../services/hotelServices'; 
 import HotelList from "./HotelList";
+import { IoMdAdd } from "react-icons/io";
 
 const Content = () => {
+  // State pour gérer l'affichage du modal
   const [showModal, setShowModal] = useState(false);
-  const [editHotel, setEditHotel] = useState(null);
+  
+  // State pour stocker les données de l'hôtel en cours d'édition ou de création
   const [hotelData, setHotelData] = useState({
     img: null,
     name: "",
@@ -17,11 +18,17 @@ const Content = () => {
     devise: ""
   });
   
+  // State pour stocker l'ID de l'hôtel en cours d'édition
+  const [editHotel, setEditHotel] = useState(null);
+  
+  // Fonction pour afficher le modal
   const handleShow = () => setShowModal(true);
+  
+  // Fonction pour fermer le modal et réinitialiser les données
   const handleClose = () => {
     setShowModal(false);
     setHotelData({
-      img:null,
+      img: null,
       name: "",
       address: "",
       email: "",
@@ -31,6 +38,7 @@ const Content = () => {
     });
   };
 
+  // Fonction pour récupérer les détails d'un hôtel et les afficher dans le modal en cas de modification
   const handleEditHotel = async (hotelId) => {
     setShowModal(true);
     setEditHotel(hotelId);
@@ -53,8 +61,7 @@ const Content = () => {
     }
   };
   
-
-  
+  // Fonction pour créer ou mettre à jour un hôtel
   const handleHotelCreate = async () => {
     try {
       const formData = new FormData();
@@ -83,13 +90,14 @@ const Content = () => {
     }
   };
   
-  
+  // Fonction pour gérer le changement de fichier
   const handleFileChange = (e) => {
     const file = e.target.files[0];
+    console.log(file.name);
     setHotelData({ ...hotelData, img: file });
   };
     
-
+  // Fonction pour gérer le changement d'input
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setHotelData({ ...hotelData, [name]: value });
@@ -97,122 +105,139 @@ const Content = () => {
 
   return (
     <>
+      {/* Bouton pour ouvrir le modal */}
+      <div className="d-flex justify-content-end contenu">
+        <button className="btn btn-outline-dark me-4 mt-4" onClick={handleShow}>
+          <IoMdAdd className="me-2" />
+          Créer un nouveau hôtel
+        </button>
 
-    <div className="d-flex justify-content-end contenu">
-      <Button variant="outline-dark" className="me-4 mt-4" onClick={handleShow}>
-        <IoMdAdd className="me-2" />
-        Créer un nouveau hôtel
-      </Button>
-
-      <Modal show={showModal} onHide={handleClose} size="lg">
-        <Modal.Header closeButton>
-          <Modal.Title>Créer un nouveau hôtel</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Row>
-            <Col>
-              <Form.Group controlId="formStep1">
-                <Form.Label>Nom de l'hôtel</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Entrez le nom de l'hôtel"
-                  name="name"
-                  value={hotelData.name}
-                  onChange={handleInputChange}
-                />
-              </Form.Group>
-            </Col>
-            <Col>
-              <Form.Group controlId="formStep2">
-                <Form.Label>Adresse</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Entrez l'adresse"
-                  name="address"
-                  value={hotelData.address}
-                  onChange={handleInputChange}
-                />
-              </Form.Group>
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-              <Form.Group controlId="formStep3">
-                <Form.Label>Email</Form.Label>
-                <Form.Control
-                  type="email"
-                  placeholder="Entrez l'email"
-                  name="email"
-                  value={hotelData.email}
-                  onChange={handleInputChange}
-                />
-              </Form.Group>
-            </Col>
-            <Col>
-              <Form.Group controlId="formStep4">
-                <Form.Label>Numéro</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Entrez le numéro"
-                  name="phoneNumber"
-                  value={hotelData.phoneNumber}
-                  onChange={handleInputChange}
-                />
-              </Form.Group>
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-              <Form.Group controlId="formStep5">
-                <Form.Label>Prix par nuit</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Entrez le prix par nuit"
-                  name="nightPrice"
-                  value={hotelData.nightPrice}
-                  onChange={handleInputChange}
-                />
-              </Form.Group>
-            </Col>
-            <Col>
-              <Form.Group controlId="formStep6">
-                <Form.Label>Devise</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Entrez la devise"
-                  name="devise"
-                  value={hotelData.devise}
-                  onChange={handleInputChange}
-                />
-              </Form.Group>
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-              <Form.Group controlId="formImage">
-                <Form.Label>Image</Form.Label>
-                <Form.Control
-                  type="file"
-                  accept="image/*"
-                  name="img"
-                  onChange={handleFileChange}
-                />
-              </Form.Group>
-            </Col>
-          </Row>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="primary" onClick={handleHotelCreate}>
-            Enregistrer
-          </Button>
-          <Button variant="secondary" onClick={handleClose}>
-            Fermer
-          </Button>
-        </Modal.Footer>
-      </Modal>
-    </div>
-    <HotelList onEditHotel={handleEditHotel} />
-
+        {/* Modal pour la création ou modification d'un hôtel */}
+        <div className="modal" tabIndex="-1" role="dialog" style={{ display: showModal ? 'block' : 'none' }}>
+          <div className="modal-dialog modal-lg" role="document">
+            <div className="modal-content">
+              {/* Contenu du modal */}
+              <div className="modal-header">
+                <h5 className="modal-title">Créer un nouveau hôtel</h5>
+                <button type="button" className="btn-close" onClick={handleClose} aria-label="Close"></button>
+              </div>
+              <div className="modal-body">
+                {/* Formulaire pour les détails de l'hôtel */}
+                <div className="row">
+                  <div className="col">
+                    <div className="form-group" controlId="formStep1">
+                      <label>Nom de l'hôtel</label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        placeholder="Entrez le nom de l'hôtel"
+                        name="name"
+                        value={hotelData.name}
+                        onChange={handleInputChange}
+                      />
+                    </div>
+                  </div>
+                  <div className="col">
+                    <div className="form-group" controlId="formStep2">
+                      <label>Adresse</label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        placeholder="Entrez l'adresse"
+                        name="address"
+                        value={hotelData.address}
+                        onChange={handleInputChange}
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col">
+                    <div className="form-group" controlId="formStep3">
+                      <label>Email</label>
+                      <input
+                        type="email"
+                        className="form-control"
+                        placeholder="Entrez l'email"
+                        name="email"
+                        value={hotelData.email}
+                        onChange={handleInputChange}
+                      />
+                    </div>
+                  </div>
+                  <div className="col">
+                    <div className="form-group" controlId="formStep4">
+                      <label>Numéro</label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        placeholder="Entrez le numéro"
+                        name="phoneNumber"
+                        value={hotelData.phoneNumber}
+                        onChange={handleInputChange}
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col">
+                    <div className="form-group" controlId="formStep5">
+                      <label>Prix par nuit</label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        placeholder="Entrez le prix par nuit"
+                        name="nightPrice"
+                        value={hotelData.nightPrice}
+                        onChange={handleInputChange}
+                      />
+                    </div>
+                  </div>
+                  <div className="col">
+                    <div className="form-group" controlId="formStep6">
+                      <label>Devise</label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        placeholder="Entrez la devise"
+                        name="devise"
+                        value={hotelData.devise}
+                        onChange={handleInputChange}
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col">
+                    <div className="form-group" controlId="formImage">
+                      <label>Image</label>
+                      <input
+                        type="file"
+                        accept="image/*"
+                        className="form-control"
+                        name="img"
+                        onChange={handleFileChange}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="modal-footer">
+                {/* Boutons de sauvegarde et de fermeture du modal */}
+                <button type="button" className="btn btn-primary" onClick={handleHotelCreate}>
+                  Enregistrer
+                </button>
+                <button type="button" className="btn btn-secondary" onClick={handleClose}>
+                  Fermer
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      {/* Liste des hôtels */}
+      <HotelList onEditHotel={handleEditHotel} />
     </>
   );
 };

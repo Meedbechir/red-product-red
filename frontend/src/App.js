@@ -9,38 +9,39 @@ import Content from './components/Content';
 import Cards from './components/Cards';
 
 function App() {
-const router = createBrowserRouter([
-  {
-    index:true,
-    element: <Login />
-  },
-  {
-    path:"/register",
-    element:<Register />
-  },
-  {
-    path:'/mdpoublie',
-    element:<Mdp />
-  },
-  {
-    path:'/cards',
-    element:<Cards />
-  },
-  {
-    path:"/",
-    element:<Dashboard />,
-    children:[
-     {
-      path:"content",
-      element:<Content />
-     },
-     {
+  // Création du routeur avec les différentes routes et éléments associés
+  const router = createBrowserRouter([
+    {
+      index: true,
+      element: <Login />
+    },
+    {
+      path: "/register",
+      element: <Register />
+    },
+    {
+      path: '/mdpoublie',
+      element: <Mdp />
+    },
+    {
+      path: "/",
+      element: <Dashboard />,
+      children: [
+        {
+          path: "content",
+          element: <Content />
+        },
+        {
+          index: true,
+          path: 'cards',
+          element: <Cards />
+        },
+      ]
+    }
+  ]);
 
-     }
-    ]    
-  }
-]) 
-  return <RouterProvider router={router} />
+  // Rendu du composant principal avec le routeur
+  return <RouterProvider router={router} />;
 }
 
 export default App;
