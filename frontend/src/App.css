@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+
+}
+
+.login-page {
+    background-image: url('./assets/bg.jpeg');
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.form-card .form-control {
+  border: none;
+  border-bottom: 1px solid rgb(146, 140, 140); 
+  border-radius: 0;
+  background-color: transparent;
+  color: white;
+  transition: border-bottom 0.3s; 
+}
+
+.form-card .form-control:focus {
+  box-shadow: none;
+  border-color: rgb(146, 140, 140); 
+}
+
+
+.form-card {
+    height: 600px; 
+}
+
+.btn-sub {
+    background-color: #494C4F !important;
+}
+
+/* .main-container {
+    display: flex;
+    height: 100vh;
+  }
+   */
+  .col-2 {
+    width: 25%;
+    background-image: url('./assets/bg.jpeg');
+    padding: 20px;
+    height: 100vh
+
+  }
+  
+  .col-10 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .navbar {
+    background-color: white;
+    color: #fff;
+    padding: 10px;
+  }
+  
+  .dflex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .card-container {
+    width: calc(25% - 20px);
+    margin-bottom: 20px;
+    box-sizing: border-box;
+  }
+
+.card-img-top {
+  width: 100%;
+  height: 15rem;
+  object-fit: cover;
+}
+
+.card-title,
+.card-text {
+  margin-bottom: 0.3rem;
+  font-size: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+
+.nvb {
+  margin-left: 16.7%;
+}
+
+.contenu {
+  margin-top: 60px;
+  margin-left: 0;
+}
+
+/* .cartes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.cartes .card {
+  width: calc(25% - 20px); 
+  margin-bottom: 20px; 
+  box-sizing: border-box;
+} */
