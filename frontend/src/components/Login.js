@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { FaBookmark } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import AuthServices from '../services/authServices';
-import { message } from 'antd';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -21,12 +20,12 @@ const Login = () => {
       const response = await AuthServices.loginUser(data);
       console.log(response.data);
       localStorage.setItem('todoAppUser', JSON.stringify(response.data));
-      message.success('Connexion Réussie');
+      alert('Connexion Réussie');
       navigate('/content');
       setLoading(false);
     } catch (err) {
       console.log(err);
-      message.error(err);
+      alert(err);
       setLoading(false);
     }
   };
