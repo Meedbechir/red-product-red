@@ -9,8 +9,8 @@ const Sidebar = () => {
     // Barre de navigation latérale
     <nav className="">
       {/* Logo de l'application */}
-      <p className="fs-5 text-white text-start">
-        <FaBookmark color="white" /> RED PRODUCT
+      <p className="fs-5 text-white text-start brand-text">
+        <FaBookmark color="white" className="fa-bookmark" /> RED PRODUCT
       </p>
       
       {/* Section principale */}

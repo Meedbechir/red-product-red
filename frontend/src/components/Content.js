@@ -130,7 +130,6 @@ const Content = () => {
                       <input
                         type="text"
                         className="form-control"
-                        placeholder="Entrez le nom de l'hôtel"
                         name="name"
                         value={hotelData.name}
                         onChange={handleInputChange}
@@ -143,7 +142,6 @@ const Content = () => {
                       <input
                         type="text"
                         className="form-control"
-                        placeholder="Entrez l'adresse"
                         name="address"
                         value={hotelData.address}
                         onChange={handleInputChange}
@@ -158,7 +156,6 @@ const Content = () => {
                       <input
                         type="email"
                         className="form-control"
-                        placeholder="Entrez l'email"
                         name="email"
                         value={hotelData.email}
                         onChange={handleInputChange}
@@ -171,7 +168,6 @@ const Content = () => {
                       <input
                         type="text"
                         className="form-control"
-                        placeholder="Entrez le numéro"
                         name="phoneNumber"
                         value={hotelData.phoneNumber}
                         onChange={handleInputChange}
@@ -186,7 +182,6 @@ const Content = () => {
                       <input
                         type="text"
                         className="form-control"
-                        placeholder="Entrez le prix par nuit"
                         name="nightPrice"
                         value={hotelData.nightPrice}
                         onChange={handleInputChange}
@@ -199,7 +194,6 @@ const Content = () => {
                       <input
                         type="text"
                         className="form-control"
-                        placeholder="Entrez la devise"
                         name="devise"
                         value={hotelData.devise}
                         onChange={handleInputChange}

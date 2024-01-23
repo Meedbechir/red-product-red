@@ -2,12 +2,15 @@ import React, { useState } from 'react';
 import { FaBookmark } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import AuthServices from '../services/authServices';
+import  { getErrorMessage } from '../utils/GetErrors';
+import {message} from 'antd'
 
 const Login = () => {
-  // États locaux pour gérer les champs de formulaire et l'état de chargement
+  // États locaux pour gérer les champs de formulaire, l'état de chargement et les erreurs
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   // Utilisation du hook useNavigate pour la navigation
   const navigate = useNavigate();
@@ -17,7 +20,7 @@ const Login = () => {
     e.preventDefault();
     try {
       // Création d'un objet avec les données du formulaire
-      let data = {
+      const data = {
         email,
         password,
       };
@@ -27,13 +30,13 @@ const Login = () => {
 
       // Appel du service d'authentification pour la connexion
       const response = await AuthServices.loginUser(data);
-      console.log(response.data);
+      console.log("Response from Auth Service:", response.data);
 
       // Enregistrement des données de l'utilisateur dans le stockage local
       localStorage.setItem('todoAppUser', JSON.stringify(response.data));
 
       // Affichage d'une alerte de connexion réussie
-      alert('Connexion Réussie');
+      message.success('Connexion Réussie');
 
       // Redirection vers la page du contenu après la connexion
       navigate('/content');
@@ -42,9 +45,13 @@ const Login = () => {
       setLoading(false);
     } catch (err) {
       console.log(err);
+      message.error(getErrorMessage(err));
+
+      // Enregistrement de l'erreur dans l'état
+      setError(err.message || 'Une erreur s\'est produite');
 
       // Affichage d'une alerte en cas d'erreur
-      alert(err);
+      alert(error);
 
       // Désactivation de l'état de chargement
       setLoading(false);
@@ -98,12 +105,12 @@ const Login = () => {
             </div>
 
             <button
-              loading={loading}
+              disabled={loading}
               type="submit"
               className=" btn btn-outline-light w-100 mb-5 btn-sub"
               onClick={handleSubmit}
             >
-              Se connecter
+              {loading ? 'Connexion en cours...' : 'Se connecter'}
             </button>
           </form>
 

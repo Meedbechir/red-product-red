@@ -38,40 +38,45 @@ async function registerUser(req, res){
 }
 
 // Fonction asynchrone pour l'authentification d'un utilisateur
-async function loginUser(req,res){
-    try{
-        const {email, password} = req.body;
+// Fonction asynchrone pour l'authentification d'un utilisateur
+async function loginUser(req, res) {
+    try {
+        const { email, password } = req.body;
 
         // Recherche de l'utilisateur dans la base de données en fonction de l'adresse e-mail
-        const user = await User.findOne({email});
+        const user = await User.findOne({ email });
 
         // Vérification de l'existence de l'utilisateur
-        if(!user){
-            return res.status(404).send({message: "Échec de l'authentification !"});
+        if (!user) {
+            return res.status(404).send({ message: "Échec de l'authentification !" });
         }
 
         // Vérification de la validité du mot de passe fourni
         const isPasswordValid = await user.comparePassword(password);
 
         // En cas de mot de passe incorrect
-        if(!isPasswordValid){
-            return res.status(404).send({message: "Mot de passe incorrect !"});
+        if (!isPasswordValid) {
+            return res.status(404).send({ message: "Mot de passe incorrect !" });
         }
 
         // Génération d'un token JWT avec l'ID de l'utilisateur comme payload
-        let token = jwt.sign({ userId: user?._id }, secretKey, { expiresIn: '1m' }); 
+        let token = jwt.sign({ userId: user?._id }, secretKey, { expiresIn: '1m' });
+
+        // Ajoutez ces logs pour inspecter le token et voir s'il contient bien une date d'expiration
+        console.log("Generated Token:", token);
+        console.log("Decoded Token:", jwt.decode(token, { complete: true }));
 
         // Données finales à renvoyer en réponse
         let finalData = {
-            userId:user?._id,
-            email:user?.email,
-            name:user?.name,
+            userId: user?._id,
+            email: user?.email,
+            name: user?.name,
             token
         }
 
         // Envoi des données finales en réponse
         res.send(finalData);
-    }catch(err){
+    } catch (err) {
         console.log(err);
 
         // Réponse en cas d'erreur lors de l'authentification

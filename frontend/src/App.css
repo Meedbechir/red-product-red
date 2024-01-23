@@ -1,84 +1,76 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }
 
 .login-page {
-    background-image: url('./assets/bg.jpeg');
-    background-size: cover;
-    background-position: center;
-    position: absolute;
-    width: 100%;
-    height: 100%;
+  background-image: url('./assets/bg.jpeg');
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 
 .form-card .form-control {
   border: none;
-  border-bottom: 1px solid rgb(146, 140, 140); 
+  border-bottom: 1px solid rgb(146, 140, 140);
   border-radius: 0;
   background-color: transparent;
   color: white;
-  transition: border-bottom 0.3s; 
+  transition: border-bottom 0.3s;
 }
 
 .form-card .form-control:focus {
   box-shadow: none;
-  border-color: rgb(146, 140, 140); 
+  border-color: rgb(146, 140, 140);
 }
 
-
 .form-card {
-    height: 600px; 
+  height: 600px;
 }
 
 .btn-sub {
-    background-color: #494C4F !important;
+  background-color: #494C4F !important;
 }
 
-/* .main-container {
-    display: flex;
-    height: 100vh;
-  }
-   */
-  .col-2 {
-    width: 25%;
-    background-image: url('./assets/bg.jpeg');
-    padding: 20px;
-    height: 100vh
+.col-2 {
+  width: 25%;
+  background-image: url('./assets/bg.jpeg');
+  padding: 20px;
+  height: 100vh;
+}
 
-  }
-  
-  .col-10 {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .navbar {
-    background-color: white;
-    color: #fff;
-    padding: 10px;
-  }
-  
-  .dflex {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-  
-  .card-container {
-    width: calc(25% - 20px);
-    margin-bottom: 20px;
-    box-sizing: border-box;
-  }
+.col-10 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar {
+  background-color: white;
+  color: #fff;
+  padding: 10px;
+}
+
+.dflex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.card-container {
+  width: calc(25% - 20px);
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
 
 .card-img-top {
   width: 100%;
@@ -95,8 +87,6 @@ html, body {
   text-overflow: ellipsis;
 }
 
-
-
 .nvb {
   margin-left: 16.7%;
 }
@@ -106,14 +96,56 @@ html, body {
   margin-left: 0;
 }
 
-/* .cartes {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+/* Ajouter une classe à l'élément "RED PRODUCT" */
+.brand-text {
+  font-size: 24px; /* Ajuster la taille de la police pour la visibilité sur mobile */
+  margin-bottom: 0; /* Supprimer la marge inférieure */
 }
 
-.cartes .card {
-  width: calc(25% - 20px); 
-  margin-bottom: 20px; 
-  box-sizing: border-box;
-} */
+/* Media query pour écrans de 599px à 641px */
+@media (max-width: 751px) {
+  .lead,
+  .nav-link span {
+    display: none; /* Cacher le texte dans la section principale et les liens */
+  }
+
+  /* Ajuster le style pour les icônes sur le sidebar */
+  .fs-5 {
+    font-size: 24px; /* Ajuster la taille de la police pour les icônes */
+    margin-bottom: 0; /* Supprimer la marge inférieure pour les icônes */
+  }
+  
+  .nav-link {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  /* Ajouter une classe à l'icône "FaBookmark" pour la visibilité */
+  .fa-bookmark {
+    display: inline !important; /* Garder l'icône FaBookmark visible */
+  }
+
+  /* Ajouter une classe à l'élément "RED PRODUCT" */
+  .brand-text {
+    display: none; /* Cacher le texte "RED PRODUCT" */
+  }
+}
+
+
+/* Card */
+
+@media (max-width: 635px) {
+  .card-container {
+      width: 100%; /* Colonne pleine (col-12) */
+  }
+}
+
+/* Votre CSS existant ... */
+
+/* Media query pour écrans de 903px à plus */
+@media (min-width: 903px) {
+  .card-container {
+    width: calc(25% - 20px); /* Quatre colonnes (col-3) */
+  }
+}

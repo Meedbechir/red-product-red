@@ -34,6 +34,10 @@ app.use('/images', express.static('images'));
 // Utilisation de multer pour le téléchargement de fichiers (uniquement un fichier à la fois avec la clé 'img')
 app.use(upload.single('img'));
 
+// Ajout du log de la date au démarrage du serveur
+const serverStartTime = new Date();
+console.log(`Le serveur a démarré le ${serverStartTime}`);
+
 // Utilisation des routes définies dans les fichiers authRoutes et hotelRoute
 app.use('/api', authRoutes);
 app.use('/api', hotelRoutes);

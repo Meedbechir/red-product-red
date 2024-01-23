@@ -1,10 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaBell, FaUserCircle, FaSignOutAlt } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { getUserDetails } from "../utils/GetUser";
 
 const Navbar = () => {
   // Utilisation du hook useNavigate pour la navigation
   const navigate = useNavigate();
+  const [user, setUser] = useState();
+
+  if(!user){
+    navigate('/');
+  }
+
+  useEffect(() => {
+    const userDetails = getUserDetails();
+       setUser(userDetails);
+  }, [])
+  
+
+
 
   // Fonction de déconnexion
   const handleLogout = () => {
