@@ -3,7 +3,6 @@ import { FaBookmark } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import AuthServices from '../services/authServices';
 import  { getErrorMessage } from '../utils/GetErrors';
-import {message} from 'antd'
 
 const Login = () => {
   // États locaux pour gérer les champs de formulaire, l'état de chargement et les erreurs
@@ -36,7 +35,7 @@ const Login = () => {
       localStorage.setItem('todoAppUser', JSON.stringify(response.data));
 
       // Affichage d'une alerte de connexion réussie
-      message.success('Connexion Réussie');
+      alert('Connexion Réussie');
 
       // Redirection vers la page du contenu après la connexion
       navigate('/content');
@@ -45,7 +44,7 @@ const Login = () => {
       setLoading(false);
     } catch (err) {
       console.log(err);
-      message.error(getErrorMessage(err));
+      alert(getErrorMessage(err));
 
       // Enregistrement de l'erreur dans l'état
       setError(err.message || 'Une erreur s\'est produite');
