@@ -3,6 +3,7 @@ import { FaBookmark } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import AuthServices from '../services/authServices';
 import { getErrorMessage } from '../utils/GetErrors';
+import {message} from 'antd';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -26,7 +27,7 @@ const Login = () => {
 
       localStorage.setItem('todoAppUser', JSON.stringify(response.data));
 
-      //  alert('Connexion Réussie');
+      message.success('Connexion Réussie');
       navigate('/content');
 
       setLoading(false);
@@ -36,7 +37,7 @@ const Login = () => {
 
       setError(err.message || 'Une erreur s\'est produite');
 
-      // alert(error);
+      message.error(error);
 
       setLoading(false);
     }
@@ -48,7 +49,7 @@ const Login = () => {
         <div className="col-md-8 offset-md-2 col-lg-6 offset-lg-3">
           <p className="fs-5 text-white text-center">
             {' '}
-            <FaBookmark color="white" /> RED PRODUCT
+            <FaBookmark color="white" size={32}/> RED PRODUCT
           </p>
           <form
             className="card text-white p-4 form-card mx-auto"

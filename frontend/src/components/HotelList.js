@@ -7,7 +7,7 @@ const HotelList = ({ onEditHotel }) => {
 
   useEffect(() => {
     fetchHotels();
-  }, []);
+  });
 
   const fetchHotels = async () => {
     try {

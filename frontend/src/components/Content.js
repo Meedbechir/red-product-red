@@ -31,6 +31,7 @@ const Content = () => {
     });
   };
 
+ 
   const handleEditHotel = async (hotelId) => {
     setShowModal(true);
     setEditHotel(hotelId);
@@ -53,33 +54,36 @@ const Content = () => {
     }
   };
   
-  const handleHotelCreate = async () => {
-    try {
-      const formData = new FormData();
-      formData.append('title', hotelData.name);
-      formData.append('address', hotelData.address);
-      formData.append('email', hotelData.email);
-      formData.append('number', hotelData.phoneNumber);
-      formData.append('price', hotelData.nightPrice);
-      formData.append('devise', hotelData.devise);
-  
-      if (hotelData.img) {
-        formData.append('img', hotelData.img);
-      }
-  
-      if (editHotel) {
-        await HotelServices.updateHotel(editHotel, formData);
-        console.log("Updated hotel ID:", editHotel);
-      } else {
-        await HotelServices.addHotel(formData);
-        console.log("Created a new hotel");
-      }
-  
-      handleClose();
-    } catch (error) {
-      console.error("Error creating/updating hotel:", error);
+const handleHotelCreate = async () => {
+  try {
+    const formData = new FormData();
+    formData.append('title', hotelData.name);
+    formData.append('address', hotelData.address);
+    formData.append('email', hotelData.email);
+    formData.append('number', hotelData.phoneNumber);
+    formData.append('price', hotelData.nightPrice);
+    formData.append('devise', hotelData.devise);
+
+    if (hotelData.img) {
+      formData.append('img', hotelData.img);
     }
-  };
+
+    if (editHotel) {
+      await HotelServices.updateHotel(editHotel, formData);
+      console.log("Updated hotel ID:", editHotel);
+    } else {
+      await HotelServices.addHotel(formData);
+    }
+
+    // Mettre à jour les hôtels après la création ou la mise à jour
+    console.log("Created or updated hotel");
+
+    handleClose();
+  } catch (error) {
+    console.error("Error creating/updating hotel:", error);
+  }
+};
+
   
   const handleFileChange = (e) => {
     const file = e.target.files[0];

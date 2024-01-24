@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { FaBookmark } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import AuthServices from "../services/authServices";
+import {message} from 'antd';
+
 const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -26,13 +28,13 @@ const Register = () => {
 
       setLoading(false);
 
-    //   alert("Inscription réussie !");
+      message.success("Inscription réussie !");
 
       navigate("/");
     } catch (err) {
       console.log(err.response.data);
 
-    //   alert("Une erreur s'est produite lors de l'inscription.");
+       message.error("Une erreur s'est produite lors de l'inscription.");
 
       setLoading(false);
     }
@@ -43,7 +45,7 @@ const Register = () => {
       <div className="container py-5 h-100 d-flex align-items-center">
         <div className="col-md-6 offset-md-3">
           <p className="fs-5 text-white text-center">
-            <FaBookmark color="white" /> RED PRODUCT
+            <FaBookmark color="white" size={32} /> RED PRODUCT
           </p>
           <form
             className="card text-white p-4 form-card mx-auto my-3"
