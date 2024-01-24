@@ -207,3 +207,41 @@ html, body {
   margin-top: 15%;
 width: 100%
 }
+
+.bg-violet-400 {
+  background-color:  #7f5af0;
+}
+.bg-teal-500 {
+  background-color:  #14b8a6;
+}
+.bg-yellow-400 {
+  background-color:  #f6e05e;
+}
+.bg-red-600 {
+  background-color:  #e53e3e;
+}
+.bg-fuchsia-700 {
+  background-color:  #9333ea;
+}
+.bg-blue-700 {
+  background-color:  #4299e1;
+}
+
+.text-dark.text-opacity-60.text-base {
+  color: #000;
+  opacity: 0.6;
+  font-size: 1.125rem;
+}
+
+.text-dark.text-3xl.font-light {
+  color: #000;
+  font-size: 1.875rem;
+  font-weight: 300;
+}
+
+.text-dark.text-base.font-light.ms-2 {
+  color: #000;
+  font-size: 1.125rem;
+  font-weight: 300;
+  margin-left: 0.5rem;
+}

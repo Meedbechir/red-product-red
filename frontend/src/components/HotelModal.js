@@ -1,4 +1,3 @@
-// HotelModal.js
 import React from "react";
 
 const HotelModal = ({

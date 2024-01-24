@@ -11,7 +11,7 @@ const Dashboard = () => {
           <Sidebar />
         </div>
         
-        <div className="col-10 offset-2">
+        <div className="col-10 offset-2" style={{backgroundColor:"#f3f4f6", height:"100vh"}}>
           <div className='nvb'>
             <Navbar />
           </div>

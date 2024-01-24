@@ -7,7 +7,7 @@ const HotelListViewModel = () => {
 
   useEffect(() => {
     fetchHotels();
-  }, []);
+  });
 
   const fetchHotels = async () => {
     try {

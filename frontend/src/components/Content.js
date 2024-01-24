@@ -1,4 +1,3 @@
-// Content.js
 import React from "react";
 import HotelList from "./HotelList";
 import HotelModal from "./HotelModal";
