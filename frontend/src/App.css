@@ -149,3 +149,61 @@ html, body {
     width: calc(25% - 20px); /* Quatre colonnes (col-3) */
   }
 }
+
+
+.text{
+  font-size: 14px;
+}
+.violet{
+    color: #fff;
+   text-align: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 50% !important;
+  background-color: #A88ADD;
+}
+.sombre{
+   color: #fff;
+   text-align: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 50% !important;
+  background-color: #9C27B0;
+}
+.vert{
+    color: #fff;
+   text-align: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 50% !important;
+  background-color: #0CC2AA;
+}
+.rouge{
+   color: #fff;
+   text-align: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 50% !important;
+  background-color: #F90000;
+}
+.blue{
+    color: #fff;
+   text-align: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 50% !important;
+  background-color: #1565C0;
+}
+.jaune{
+   color: #fff;
+   text-align: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 50% !important;
+  background-color: #FCC100;
+}
+
+.cardds{
+  margin-top: 15%;
+width: 100%
+}

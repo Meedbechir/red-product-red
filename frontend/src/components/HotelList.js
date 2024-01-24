@@ -3,15 +3,12 @@ import HotelServices from '../services/hotelServices';
 import { FaEdit, FaTrash } from "react-icons/fa";
 
 const HotelList = ({ onEditHotel }) => {
-  // État local pour stocker la liste des hôtels
   const [hotels, setHotels] = useState([]);
 
-  // Utilisation de useEffect pour charger les hôtels au rendu initial du composant
   useEffect(() => {
     fetchHotels();
   }, []);
 
-  // Fonction asynchrone pour récupérer la liste des hôtels depuis le service
   const fetchHotels = async () => {
     try {
       const response = await HotelServices.getHotels();
@@ -21,26 +18,21 @@ const HotelList = ({ onEditHotel }) => {
     }
   };
 
-  // Gestionnaire de mise à jour d'un hôtel (passé en tant que prop)
   const handleUpdate = (hotelId) => {
     onEditHotel(hotelId);
     console.log("ID de l'hôtel à mettre à jour :", hotelId);
   };
 
-  // Gestionnaire de suppression d'un hôtel
   const handleDelete = async (hotelId) => {
     try {
       await HotelServices.deleteHotel(hotelId);
       console.log("ID de l'hôtel supprimé :", hotelId);
-
-      // Rafraîchir la liste des hôtels après suppression
       fetchHotels();
     } catch (error) {
       console.error("Erreur lors de la suppression de l'hôtel :", error);
     }
   };
 
-  // Rendu du composant
   return (
     <div className="mt-4">
       <div className="w-100 dflex">

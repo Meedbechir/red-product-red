@@ -9,7 +9,6 @@ import Content from './components/Content';
 import Cards from './components/Cards';
 
 function App() {
-  // Création du routeur avec les différentes routes et éléments associés
   const router = createBrowserRouter([
     {
       index: true,
@@ -40,7 +39,6 @@ function App() {
     }
   ]);
 
-  // Rendu du composant principal avec le routeur
   return <RouterProvider router={router} />;
 }
 
