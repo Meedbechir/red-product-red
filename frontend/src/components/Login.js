@@ -3,7 +3,6 @@ import { FaBookmark } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import AuthServices from '../services/authServices';
 import { getErrorMessage } from '../utils/GetErrors';
-import {message} from 'antd';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -27,8 +26,7 @@ const Login = () => {
 
       localStorage.setItem('todoAppUser', JSON.stringify(response.data));
 
-      message.success('Connexion Réussie');
-
+      //  alert('Connexion Réussie');
       navigate('/content');
 
       setLoading(false);
@@ -38,7 +36,7 @@ const Login = () => {
 
       setError(err.message || 'Une erreur s\'est produite');
 
-      message.error(error);
+      // alert(error);
 
       setLoading(false);
     }

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { FaBell, FaUserCircle, FaSignOutAlt } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { getUserDetails } from "../utils/GetUser";
-import {message} from 'antd';
+
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -22,7 +22,7 @@ const Navbar = () => {
 
   const handleLogout = () => {
     localStorage.removeItem('todoAppUser');
-    message.success('Deconnexion Reussie');
+    // alert('Deconnexion Reussie');
     navigate('/');
   };
 
