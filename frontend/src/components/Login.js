@@ -1,46 +1,11 @@
-import React, { useState } from 'react';
+// Login.js
+import React from 'react';
 import { FaBookmark } from 'react-icons/fa';
-import { Link, useNavigate } from 'react-router-dom';
-import AuthServices from '../services/authServices';
-import { getErrorMessage } from '../utils/GetErrors';
+import { Link } from 'react-router-dom';
+import LoginViewModel from './LoginViewModel';
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const navigate = useNavigate();
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const data = {
-        email,
-        password,
-      };
-
-      setLoading(true);
-
-      const response = await AuthServices.loginUser(data);
-      console.log("Response from Auth Service:", response.data);
-
-      localStorage.setItem('todoAppUser', JSON.stringify(response.data));
-
-      //  alert('Connexion Réussie');
-      navigate('/content');
-
-      setLoading(false);
-    } catch (err) {
-      console.log(err);
-      alert(getErrorMessage(err));
-
-      setError(err.message || 'Une erreur s\'est produite');
-
-      // alert(error);
-
-      setLoading(false);
-    }
-  };
+  const viewModel = LoginViewModel();
 
   return (
     <section className="vh-100 gradient-custom login-page">
@@ -63,8 +28,8 @@ const Login = () => {
                 type="email"
                 className="form-control text-dark"
                 placeholder="Email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                value={viewModel.email}
+                onChange={(e) => viewModel.setEmail(e.target.value)}
                 autoComplete="off"
               />
             </div>
@@ -74,8 +39,8 @@ const Login = () => {
                 type="password"
                 className="form-control text-dark"
                 placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                value={viewModel.password}
+                onChange={(e) => viewModel.setPassword(e.target.value)}
                 autoComplete="off"
               />
             </div>
@@ -88,12 +53,12 @@ const Login = () => {
             </div>
 
             <button
-              disabled={loading}
+              disabled={viewModel.loading}
               type="submit"
               className=" btn btn-outline-light w-100 mb-5 btn-sub"
-              onClick={handleSubmit}
+              onClick={viewModel.handleSubmit}
             >
-              {loading ? 'Connexion en cours...' : 'Se connecter'}
+              {viewModel.loading ? 'Connexion en cours...' : 'Se connecter'}
             </button>
           </form>
 

@@ -1,10 +1,43 @@
-import React from 'react';
-import { FaBookmark } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
-import RegisterViewModel from './RegisterViewModel';
+import React, { useState } from "react";
+import { FaBookmark } from "react-icons/fa";
+import { Link, useNavigate } from "react-router-dom";
+import AuthServices from "../services/authServices";
 
 const Register = () => {
-  const viewModel = RegisterViewModel();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      setLoading(true);
+
+      const data = {
+        name,
+        email,
+        password,
+      };
+
+      const response = await AuthServices.registerUser(data);
+      console.log(response.data);
+
+      setLoading(false);
+
+    //   alert("Inscription réussie !");
+
+      navigate("/");
+    } catch (err) {
+      console.log(err.response.data);
+
+    //   alert("Une erreur s'est produite lors de l'inscription.");
+
+      setLoading(false);
+    }
+  };
 
   return (
     <section className="vh-100 gradient-custom login-page">
@@ -15,8 +48,7 @@ const Register = () => {
           </p>
           <form
             className="card text-white p-4 form-card mx-auto my-3"
-            style={{ maxWidth: '500px', width: '70%', height: '455px' }}
-            onSubmit={viewModel.handleSubmit}
+            style={{ maxWidth: "500px", width: "70%", height: "455px" }}
           >
             <p className="fw-bold mb-4 text-uppercase text-dark text-start">
               Inscrivez-vous
@@ -26,8 +58,8 @@ const Register = () => {
                 type="text"
                 className="form-control text-dark"
                 placeholder="Nom"
-                value={viewModel.name}
-                onChange={(e) => viewModel.setName(e.target.value)}
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 autoComplete="off"
               />
             </div>
@@ -36,8 +68,8 @@ const Register = () => {
                 type="email"
                 className="form-control text-dark"
                 placeholder="Email"
-                value={viewModel.email}
-                onChange={(e) => viewModel.setEmail(e.target.value)}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 autoComplete="off"
               />
             </div>
@@ -46,8 +78,8 @@ const Register = () => {
                 type="password"
                 className="form-control text-dark"
                 placeholder="Mot de passe"
-                value={viewModel.password}
-                onChange={(e) => viewModel.setPassword(e.target.value)}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 autoComplete="off"
               />
             </div>
@@ -65,15 +97,16 @@ const Register = () => {
               </label>
             </div>
             <button
-              loading={viewModel.loading}
+              loading={loading}
               type="submit"
-              className="btn btn-outline-light w-100 mb-5 btn-sub"
+              className=" btn btn-outline-light w-100 mb-5 btn-sub"
+              onClick={handleSubmit}
             >
               S'inscrire
             </button>
           </form>
           <p className="text-center text-white">
-            Vous avez déjà un compte ?{' '}
+            Vous avez déjà un compte ?{" "}
             <Link to="/" className="text-warning fw-bold">
               Connectez-vous
             </Link>
