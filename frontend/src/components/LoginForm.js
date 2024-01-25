@@ -4,7 +4,7 @@ const LoginForm = ({ viewModel }) => {
   return (
     <form
       className="card text-white p-4 form-card mx-auto"
-      style={{ maxWidth: '500px', width: '70%', height: '410px' }}
+      style={{ width: 'fit-content' }}
     >
       <p className="fw-bold mb-4 text-dark text-start">
         Connectez-vous en tant qu'administrateur
@@ -25,7 +25,7 @@ const LoginForm = ({ viewModel }) => {
         <input
           type="password"
           className="form-control text-dark"
-          placeholder="Password"
+          placeholder="Mot de passe"
           value={viewModel.password}
           onChange={(e) => viewModel.setPassword(e.target.value)}
           autoComplete="off"

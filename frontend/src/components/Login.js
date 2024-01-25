@@ -9,9 +9,9 @@ const Login = () => {
 
   return (
     <section className="vh-100 gradient-custom login-page">
-      <div className="container py-5 d-flex align-items-center">
-        <div className="col-md-8 offset-md-2 col-lg-6 offset-lg-3">
-          <p className="fs-5 text-white text-center">
+      <div className=" py-5 d-flex align-items-center justify-content-center">
+        <div className="col-md-8">
+          <p className="fs-5 text-white text-center mb-2">
             {' '}
             <FaBookmark color="white" size={32} /> RED PRODUCT
           </p>

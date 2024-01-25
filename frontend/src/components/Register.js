@@ -9,8 +9,8 @@ const Register = () => {
 
   return (
     <section className="vh-100 gradient-custom login-page">
-      <div className="container py-5 h-100 d-flex align-items-center">
-        <div className="col-md-6 offset-md-3">
+      <div className=" py-5 h-100 d-flex justify-content-center align-items-center">
+        <div className="col-md-6 ">
           <p className="fs-5 text-white text-center">
             <FaBookmark color="white" size={32} /> RED PRODUCT
           </p>

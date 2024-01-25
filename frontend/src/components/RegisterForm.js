@@ -2,9 +2,10 @@ import React from 'react';
 
 const RegisterForm = ({ viewModel }) => {
   return (
+    <>
     <form
       className="card text-white p-4 form-card mx-auto my-3"
-      style={{ maxWidth: '500px', width: '70%', height: '455px' }}
+      style={{  width: 'fit-content' }}
       onSubmit={viewModel.handleSubmit}
     >
       <p className="fw-bold mb-4 text-uppercase text-dark text-start">
@@ -56,11 +57,12 @@ const RegisterForm = ({ viewModel }) => {
       <button
         loading={viewModel.loading}
         type="submit"
-        className="btn btn-outline-light w-100 mb-5 btn-sub"
+        className="btn btn-outline-light w-100 mb-3 btn-sub"
       >
         S'inscrire
       </button>
     </form>
+    </>
   );
 };
 
