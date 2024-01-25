@@ -26,7 +26,7 @@ const HotelList = ({ onEditHotel }) => {
           <div className="card mx-auto card-container" key={hotel._id}>
             <img
               className="card-img-top"
-              src={`http://localhost:5000/images/${hotel.img}`}
+              src={`https://f-red-pr.onrender.com/images/${hotel.img}`}
               alt={hotel.title}
             />
             <div className="card-body">
