@@ -6,9 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "start": "node backend/server.js",
+    "start": "node server.js",
     "client": "cd ../frontend && npm start",
-    "server": "nodemon backend/server.js"
+    "server": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
