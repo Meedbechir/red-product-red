@@ -10,6 +10,15 @@ const HotelList = ({ onEditHotel }) => {
     console.log("ID de l'hôtel à mettre à jour :", hotelId);
   };
 
+  const handleDelete = (hotelId) => {
+    // Show confirmation dialog
+    const confirmDelete = window.confirm("Êtes-vous sûr de vouloir supprimer cet hôtel ?");
+    
+    if (confirmDelete) {
+      viewModel.handleDelete(hotelId);
+    }
+  };
+
   return (
     <div className="mt-4">
       <div className="w-100 dflex">
@@ -34,7 +43,7 @@ const HotelList = ({ onEditHotel }) => {
                 </button>
                 <button
                   className="btn btn-danger"
-                  onClick={() => viewModel.handleDelete(hotel._id)}
+                  onClick={() => handleDelete(hotel._id)}
                 >
                   <FaTrash />
                 </button>

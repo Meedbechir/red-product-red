@@ -1,4 +1,3 @@
-// LoginViewModel.js
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AuthServices from '../services/authServices';
@@ -8,7 +7,6 @@ const LoginViewModel = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -34,21 +32,19 @@ const LoginViewModel = () => {
       console.log(err);
       alert(getErrorMessage(err));
 
-      setError(err.message || 'Une erreur s\'est produite');
+     alert(err.message || 'Une erreur s\'est produite');
 
       // alert(error);
 
       setLoading(false);
     }
   };
-
   return {
     email,
     setEmail,
     password,
     setPassword,
     loading,
-    error,
     handleSubmit,
   };
 };

@@ -96,23 +96,20 @@ html, body {
   margin-left: 0;
 }
 
-/* Ajouter une classe à l'élément "RED PRODUCT" */
 .brand-text {
-  font-size: 24px; /* Ajuster la taille de la police pour la visibilité sur mobile */
-  margin-bottom: 0; /* Supprimer la marge inférieure */
+  font-size: 24px;
+  margin-bottom: 0; 
 }
 
-/* Media query pour écrans de 599px à 641px */
 @media (max-width: 751px) {
   .lead,
   .nav-link span {
-    display: none; /* Cacher le texte dans la section principale et les liens */
+    display: none; 
   }
 
-  /* Ajuster le style pour les icônes sur le sidebar */
   .fs-5 {
-    font-size: 24px; /* Ajuster la taille de la police pour les icônes */
-    margin-bottom: 0; /* Supprimer la marge inférieure pour les icônes */
+    font-size: 24px; 
+    margin-bottom: 0; 
   }
   
   .nav-link {
@@ -121,19 +118,18 @@ html, body {
     margin-bottom: 1rem;
   }
 
-  /* Ajouter une classe à l'icône "FaBookmark" pour la visibilité */
   .fa-bookmark {
-    display: inline !important; /* Garder l'icône FaBookmark visible */
+    display: inline !important;
+  }
+  .text-side{
+    display: none;
   }
 
-  /* Ajouter une classe à l'élément "RED PRODUCT" */
+
   .brand-text {
-    display: none; /* Cacher le texte "RED PRODUCT" */
+    display: none;
   }
 }
-
-
-/* Card */
 
 @media (max-width: 635px) {
   .card-container {
@@ -154,54 +150,7 @@ html, body {
 .text{
   font-size: 14px;
 }
-.violet{
-    color: #fff;
-   text-align: center;
-  width: 70px;
-  height: 70px;
-  border-radius: 50% !important;
-  background-color: #A88ADD;
-}
-.sombre{
-   color: #fff;
-   text-align: center;
-  width: 70px;
-  height: 70px;
-  border-radius: 50% !important;
-  background-color: #9C27B0;
-}
-.vert{
-    color: #fff;
-   text-align: center;
-  width: 70px;
-  height: 70px;
-  border-radius: 50% !important;
-  background-color: #0CC2AA;
-}
-.rouge{
-   color: #fff;
-   text-align: center;
-  width: 70px;
-  height: 70px;
-  border-radius: 50% !important;
-  background-color: #F90000;
-}
-.blue{
-    color: #fff;
-   text-align: center;
-  width: 70px;
-  height: 70px;
-  border-radius: 50% !important;
-  background-color: #1565C0;
-}
-.jaune{
-   color: #fff;
-   text-align: center;
-  width: 70px;
-  height: 70px;
-  border-radius: 50% !important;
-  background-color: #FCC100;
-}
+
 
 .cardds{
   margin-top: 15%;

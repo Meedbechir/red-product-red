@@ -10,18 +10,20 @@ const Sidebar = () => {
       <p className="fs-5 text-white text-start brand-text">
         <FaBookmark color="white" className="fa-bookmark" /> RED PRODUCT
       </p>
-      
+
       <p className="lead text-white text-start mt-4 fs-6">Principal</p>
-      
+
       <NavLink to="/cards" className="nav-link text-white text-start mb-3 fs-5">
         <HiOutlineSquares2X2 size={20} color="white" className="me-2" />
         <span className="mobile-hidden">Dashboard</span>
       </NavLink>
-      
-      <NavLink to="content" className="nav-link text-white text-start fs-5">
+
+      <NavLink to="content" className="nav-link text-white text-start mb-2 fs-5">
         <BsLaptop size={20} className="me-2" />
         <span className="mobile-hidden">Liste des hôtels</span>
       </NavLink>
+
+      <p className="text-white text-center fs-5 me-2 text-side" style={{paddingTop:"55vh"}}>Meed bechir</p>
     </nav>
   );
 };

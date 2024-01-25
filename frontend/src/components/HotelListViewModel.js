@@ -1,4 +1,3 @@
-// HotelListViewModel.js
 import { useState, useEffect } from 'react';
 import HotelServices from '../services/hotelServices';
 
@@ -7,7 +6,8 @@ const HotelListViewModel = () => {
 
   useEffect(() => {
     fetchHotels();
-  });
+  },[]);
+  
 
   const fetchHotels = async () => {
     try {
