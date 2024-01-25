@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const SERVER_URL = 'http://localhost:5000/api';
+const SERVER_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
 
 const addHotel = (data) => {
   return axios.post(`${SERVER_URL}/hotels`, data);
@@ -27,7 +27,7 @@ const HotelServices = {
   getHotels,
   getHotelById,
   updateHotel,
-  deleteHotel
+  deleteHotel,
 };
 
 export default HotelServices;
