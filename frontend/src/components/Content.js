@@ -9,11 +9,16 @@ const Content = () => {
 
   return (
     <>
-      <div className="d-flex justify-content-end contenu">
+      <div className="d-flex justify-content-between contenu bg-white mb-5">
+        <div className="mb-3">
+          <h3 className="mt-4 ms-5 fs-2 lead">Hôtels </h3>
+        </div>
+        <div>
         <button className="btn btn-outline-dark me-4 mt-4" onClick={viewModel.handleShow}>
           <IoMdAdd className="me-2" />
           Créer un nouveau hôtel
         </button>
+        </div>
 
         <HotelModal
           showModal={viewModel.showModal}

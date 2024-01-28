@@ -57,8 +57,11 @@ const Dashcards = () => {
   const { content } = useDashcardsViewModel();
 
   return (
-    <div class="container mt-5 pt-5">
-    <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="container mt-5 pt-3 mx-0 px-0">
+      <div className="d-flex justify-content-between  bg-white mx-0 px-0">
+          <h3 className="mt-4 ms-5 fs-2 lead ">Bienvenue sur Red Product </h3>
+      </div>
+    <div class="row row-cols-1 row-cols-md-3 g-4 mt-4 mx-3">
       {content.map((item, index) => (
         <div key={index} class="col">
           <div class={`card bg-white ${item.bg}`}>

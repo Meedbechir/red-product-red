@@ -1,5 +1,6 @@
 import React from "react";
-import { FaBookmark } from "react-icons/fa";
+// import { FaBookmark } from "react-icons/fa";
+import header from '../assets/images/header.png'
 import { BsLaptop } from "react-icons/bs";
 import { HiOutlineSquares2X2 } from "react-icons/hi2";
 import { NavLink } from "react-router-dom";
@@ -7,8 +8,8 @@ import { NavLink } from "react-router-dom";
 const Sidebar = () => {
   return (
     <nav className="">
-      <p className="fs-5 text-white text-start brand-text">
-        <FaBookmark color="white" className="fa-bookmark" /> RED PRODUCT
+      <p className="text-white brand-text me-5">
+        <img src={header} alt="" width={201} />
       </p>
 
       <p className="lead text-white text-start mt-4 fs-6">Principal</p>

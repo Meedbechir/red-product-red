@@ -1,4 +1,3 @@
-// Navbar.js
 import React from 'react';
 import { FaBell, FaUserCircle, FaSignOutAlt } from 'react-icons/fa';
 import NavbarViewModel from './NavbarViewModel';
@@ -29,7 +28,7 @@ const Navbar = () => {
               <input
                 type="search"
                 placeholder="Rechercher"
-                className="form-control"
+                className="form-control rounded-pill"
                 aria-label="Search"
               />
             </form>
