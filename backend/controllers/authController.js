@@ -23,19 +23,6 @@ async function registerUser(req, res) {
         res.status(400).send(err);
     }
 }
-// Vérifiation des données de l'utilisateur
-async function checkUserExists(req, res) {
-    try {
-      const { email } = req.body;
-      const user = await User.findOne({ email });
-      res.send({ exists: !!user });
-    } catch (err) {
-      console.error(err);
-      res
-        .status(500)
-        .send({ message: "Erreur lors de la vérification de l'utilisateur" });
-    }
-  }
 
 async function loginUser(req, res) {
     try {
@@ -71,8 +58,7 @@ async function loginUser(req, res) {
 
 const AuthController = {
     registerUser,
-    loginUser,
-    checkUserExists
+    loginUser
 }
 
 module.exports = AuthController;
