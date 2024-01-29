@@ -20,7 +20,7 @@ const HotelList = ({ onEditHotel }) => {
     }
   };
 
-  const defaultImage = "https://lesjardinsdelamadrague.eu/wp-content/uploads/2023/03/les-jardins-de-la-madrague-corse.jpg";
+  const defaultImage = "https://www.bladi.net/img/jpg/dakar-hotel-roi-maroc.jpg";
 
   return (
     <div className="mt-4">
