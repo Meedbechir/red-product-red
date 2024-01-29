@@ -9,6 +9,7 @@ const HotelController = {
         return res.status(400).json({ message: 'Les champs titre, prix et adresse sont obligatoires' });
       }
 
+      const img = req.file ? req.file.filename : null;
 
       const newHotel = new Hotel({
         img,
