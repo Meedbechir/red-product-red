@@ -26,7 +26,7 @@ const upload = multer({ storage: storage });
 
 
 
-APP.use('/images', express.static('images'));
+APP.use('/images', express.static(path.join(__dirname, 'backend', 'images')));
 APP.use(upload.single('img'));
 
 const serverStartTime = new Date();
