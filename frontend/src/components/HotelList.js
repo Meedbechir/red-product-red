@@ -20,6 +20,8 @@ const HotelList = ({ onEditHotel }) => {
     }
   };
 
+  const defaultImage = "https://lesjardinsdelamadrague.eu/wp-content/uploads/2023/03/les-jardins-de-la-madrague-corse.jpg";
+
   return (
     <div className="mt-4">
       <div className="w-100 dflex">
@@ -27,7 +29,7 @@ const HotelList = ({ onEditHotel }) => {
           <div className="card mx-auto card-container" key={hotel._id}>
             <img
               className="card-img-top"
-              src={`${hotel.img}`}
+              src={imageError ? defaultImage : hotel.img}
               alt={hotel.title}
               onError={() => setImageError(true)}
             />
@@ -37,7 +39,7 @@ const HotelList = ({ onEditHotel }) => {
               <h5 className="card-title title-card">{hotel.title}</h5>
               <p className="card-text">{hotel.description}</p>
               <p className="card-text">{hotel.price} XOF par nuit</p>
-               <div className="d-flex justify-content-end">
+              <div className="d-flex justify-content-end">
                 <button
                   className="btn btn-info me-2"
                   onClick={() => handleUpdate(hotel._id)}

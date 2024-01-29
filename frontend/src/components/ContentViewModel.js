@@ -55,9 +55,11 @@ const ContentViewModel = () => {
       formData.append('price', hotelData.nightPrice);
       formData.append('devise', hotelData.devise);
   
+      // If there's an image URL, append it to the form data
       if (hotelData.img) {
         formData.append('img', hotelData.img);
       }
+  
       if (editHotel) {
         await HotelServices.updateHotel(editHotel, formData);
       } else {
@@ -68,6 +70,7 @@ const ContentViewModel = () => {
       console.error("Error creating/updating hotel:", error);
     }
   };
+  
 
   const handleFileChange = (e) => {
   const file = e.target.files[0];
