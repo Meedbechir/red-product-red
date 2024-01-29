@@ -29,7 +29,7 @@ const HotelList = ({ onEditHotel }) => {
           <div className="card mx-auto card-container" key={hotel._id}>
             <img
               className="card-img-top"
-              src={imageError ? defaultImage : hotel.img}
+              src={`${hotel.img}`}
               alt={hotel.title}
               onError={() => setImageError(true)}
             />
