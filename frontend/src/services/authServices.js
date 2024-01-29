@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const SERVER_URL = process.env.REACT_APP_API_URL || 'https://f-red-pr.onrender.com/api';
+const SERVER_URL = process.env.REACT_APP_API_URL || 'https://fk-red-pro.onrender.com/api';
 
 const registerUser = (data) => {
   return axios.post(`${SERVER_URL}/register`, data);
