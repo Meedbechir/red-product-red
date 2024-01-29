@@ -9,7 +9,7 @@ const HotelController = {
         return res.status(400).json({ message: 'Les champs titre, prix et adresse sont obligatoires' });
       }
 
-      const img = req.file ? req.file.filename : "https://lesjardinsdelamadrague.eu/wp-content/uploads/2023/03/les-jardins-de-la-madrague-corse.jpg";
+      const img = req.file ? req.file.filename : "https://www.bladi.net/img/jpg/dakar-hotel-roi-maroc.jpg";
 
       const newHotel = new Hotel({
         img,
