@@ -24,11 +24,14 @@ const HotelList = ({ onEditHotel }) => {
       <div className="w-100 dflex">
         {viewModel.hotels.map((hotel) => (
           <div className="card mx-auto card-container" key={hotel._id}>
-            <img
-              className="card-img-top"
-              src={`https://f-red-pr.onrender.com/images/${hotel.img}`}
-              alt={hotel.title}
-            />
+<img
+  className="card-img-top"
+  src={hotel.img ? `https://f-red-pr.onrender.com/images/${hotel.img}` : "https://lesjardinsdelamadrague.eu/wp-content/uploads/2023/03/les-jardins-de-la-madrague-corse.jpg"}
+  alt={hotel.title}
+  onError={(e) => console.error('Error loading image:', e, hotel)}
+/>
+
+
             <div className="card-body">
               <p className="card-text add">{hotel.address}</p>
               <h5 className="card-title title-card">{hotel.title}</h5>
