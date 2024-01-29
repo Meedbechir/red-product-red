@@ -68,10 +68,16 @@ const ContentViewModel = () => {
       console.error("Error creating/updating hotel:", error);
     }
   };
+
   const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    setHotelData({ ...hotelData, img: file });
-  };
+  const file = e.target.files[0];
+  const imageUrl = URL.createObjectURL(file);
+  setHotelData({ ...hotelData, img: imageUrl });
+
+  URL.revokeObjectURL(imageUrl);
+};
+
+  
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setHotelData({ ...hotelData, [name]: value });
