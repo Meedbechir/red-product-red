@@ -9,7 +9,7 @@ const HotelController = {
         return res.status(400).json({ message: 'Les champs titre, prix et adresse sont obligatoires' });
       }
 
-      const img = req.file ? req.file.filename : "https://www.bladi.net/img/jpg/dakar-hotel-roi-maroc.jpg";
+      const img = req.file ? req.file.filename : "https://www.hotel-madrague.com/images/09.jpg";
 
       const newHotel = new Hotel({
         img,

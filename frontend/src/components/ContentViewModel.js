@@ -55,7 +55,6 @@ const ContentViewModel = () => {
       formData.append('price', hotelData.nightPrice);
       formData.append('devise', hotelData.devise);
   
-      // If there's an image URL, append it to the form data
       if (hotelData.img) {
         formData.append('img', hotelData.img);
       }
